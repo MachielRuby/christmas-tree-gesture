@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D 圣诞树 · AI 手势控制</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- 3D 画布 -->
+    <canvas id="canvas"></canvas>
+
+    <!-- 摄像头预览 + 手势骨架叠加 -->
+    <div id="camera-panel">
+      <video id="video" autoplay playsinline muted></video>
+      <canvas id="landmark-canvas"></canvas>
+      <div id="gesture-label">等待手势…</div>
+    </div>
+
+    <!-- 操作提示 -->
+    <div id="hint-panel">
+      <h2>✋ 手势操控</h2>
+      <ul>
+        <li><span class="gesture-icon">☝️</span> 食指向上 — 旋转树</li>
+        <li><span class="gesture-icon">✊</span> 握拳 — 持续靠近</li>
+        <li><span class="gesture-icon">🖐️</span> 张开手 — 持续远离</li>
+        <li><span class="gesture-icon">✌️</span> V手势 — 彩灯开关</li>
+        <li><span class="gesture-icon">🤟</span> ILY — 飘雪开关</li>
+        <li><span class="gesture-icon">👍</span> 点赞 — 烟火爆发</li>
+        <li><span class="gesture-icon">👎</span> 踩 — 摇动圣诞树</li>
+      </ul>
+    </div>
+
+    <!-- 加载遮罩 -->
+    <div id="loading-overlay">
+      <div class="loader-ring"></div>
+      <p id="loading-text">正在初始化 AI 模型…</p>
+      <button id="camera-retry-btn" style="display:none;">点击启动摄像头</button>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
